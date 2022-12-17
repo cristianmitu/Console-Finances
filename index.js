@@ -89,15 +89,24 @@ var finances = [
 
 let totalNet = 0;
 let numberOfMonths = 0;
-
-
+let date = 0;
 
 for (let i = 0; i < finances.length; i++) {
     numberOfMonths = finances.length;
     totalNet = totalNet + finances[i][1];
     
 }
+console.log(numberOfMonths);
+console.log(totalNet);
 
+let change = 0;
+let average = 0;
+for (let i = 0; i < finances.length - 1; i++) {
+    
+    change = change + finances[i+1][1] - finances[i][1];
+}
+average = change / (finances.length -1);
+console.log(average);
 
 let greatestIncrease = finances[1][1] - finances[0][1];
 
@@ -107,10 +116,11 @@ for (let i = 0; i < (finances.length -1); i++) {
         greatestIncrease = greatestIncrease;
     }else{
         greatestIncrease = (finances[i+1][1] - finances[i][1]);
+        date = finances[i+1][0];
     }
         
 }
-
+console.log(date ,greatestIncrease);
 
 let greatestDecrease = finances[1][1] - finances [0][1];
 for (let i = 0; i < (finances.length -1); i++) {
@@ -118,24 +128,18 @@ for (let i = 0; i < (finances.length -1); i++) {
         greatestDecrease = greatestDecrease;
     }else{
         greatestDecrease = (finances[i+1][1] - finances[i][1]);
+        date = finances[i+1][0];
     }
         
 }
+console.log(date,greatestDecrease);
 
 
-let change = 0;
-let average = 0;
-for (let i = 0; i < finances.length - 1; i++) {
-    
-    change = change + finances[i+1][1] - finances[i][1];
-}
-average = change / (finances.length -1);
 
-console.log(numberOfMonths);
-console.log(totalNet);
-console.log(average);
-console.log(greatestIncrease);
-console.log(greatestDecrease);
+
+
+
+
 console.log(`
 Financial Analysis
 ------------------
